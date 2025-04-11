@@ -99,7 +99,6 @@ map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]ui
 -- or just use <C-\><C-n> to exit terminal mode
 map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
-
 -- TIP: Disable arrow keys in normal mode
 map('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 map('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
@@ -107,28 +106,24 @@ map('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 map('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- Allows me to move with the hjkl cluster in insert mode
-map('i', "<C-h>", "<Left>", { desc = "Move left in insert mode" })
-map('i', "<C-l>", "<Right>", { desc = "Move right in insert mode" })
-map('i', "<C-j>", "<Down>", { desc = "Move down in insert mode" })
-map('i', "<C-k>", "<Up>", { desc = "Move up in insert mode" })
+map('i', '<C-h>', '<Left>', { desc = 'Move left in insert mode' })
+map('i', '<C-l>', '<Right>', { desc = 'Move right in insert mode' })
+map('i', '<C-j>', '<Down>', { desc = 'Move down in insert mode' })
+map('i', '<C-k>', '<Up>', { desc = 'Move up in insert mode' })
 
 -- Switching windows
-map('n', "<C-h>", "<C-w>h", { desc = "switch window left" })
-map('n', "<C-l>", "<C-w>l", { desc = "switch window right" })
-map('n', "<C-j>", "<C-w>j", { desc = "switch window down" })
-map('n', "<C-k>", "<C-w>k", { desc = "switch window up" })
+map('n', '<C-h>', '<C-w>h', { desc = 'switch window left' })
+map('n', '<C-l>', '<C-w>l', { desc = 'switch window right' })
+map('n', '<C-j>', '<C-w>j', { desc = 'switch window down' })
+map('n', '<C-k>', '<C-w>k', { desc = 'switch window up' })
 
 -- Neo Tree
-map("n", "<C-f>", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window" })
+map('n', '<C-f>', '<cmd>NvimTreeFocus<CR>', { desc = 'nvimtree focus window' })
 
 --terminal
-map(
-  { "n", "t" },
-  "<A-i>",
-  function()
-    require("nvterm.terminal").toggle "float"
-  end, { desc = "Toggle floating terminal" })
-
+map({ 'n', 't' }, '<A-i>', function()
+  require('nvterm.terminal').toggle 'float'
+end, { desc = 'Toggle floating terminal' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -220,7 +215,7 @@ require('lazy').setup({
   -- Then, because we use the `opts` key (recommended), the configuration runs
   -- after the plugin has been loaded as `require(MODULE).setup(opts)`.
 
-  {                     -- Useful plugin to show you pending keybinds.
+  { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     opts = {
@@ -301,7 +296,7 @@ require('lazy').setup({
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -409,7 +404,7 @@ require('lazy').setup({
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
-      { 'j-hui/fidget.nvim',       opts = {} },
+      { 'j-hui/fidget.nvim', opts = {} },
 
       -- Allows extra capabilities provided by blink.cmp
       'saghen/blink.cmp',
@@ -824,8 +819,8 @@ require('lazy').setup({
         invert_signs = false,
         invert_tabline = false,
         invert_intend_guides = false,
-        inverse = true,    -- invert background for search, diffs, statuslines and errors
-        contrast = "soft", -- can be "hard", "soft" or empty string
+        inverse = true, -- invert background for search, diffs, statuslines and errors
+        contrast = 'soft', -- can be "hard", "soft" or empty string
         palette_overrides = {},
         overrides = {},
         dim_inactive = false,
@@ -907,9 +902,9 @@ require('lazy').setup({
   },
 
   {
-    "NvChad/nvterm",
+    'NvChad/nvterm',
     config = function()
-      require("nvterm").setup({
+      require('nvterm').setup {
         terminals = {
           shell = vim.o.shell,
           list = {},
@@ -920,11 +915,11 @@ require('lazy').setup({
               col = 0.25,
               width = 0.5,
               height = 0.4,
-              border = "single",
+              border = 'single',
             },
-            horizontal = { location = "rightbelow", split_ratio = .3, },
-            vertical = { location = "rightbelow", split_ration = .5 },
-          }
+            horizontal = { location = 'rightbelow', split_ratio = 0.3 },
+            vertical = { location = 'rightbelow', split_ration = 0.5 },
+          },
         },
         behavior = {
           autoclose_on_quit = {
@@ -934,40 +929,55 @@ require('lazy').setup({
           close_on_exit = true,
           auto_insert = true,
         },
-      })
+      }
     end,
   },
   {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    'ThePrimeagen/harpoon',
+    branch = 'harpoon2',
+    dependencies = { 'nvim-lua/plenary.nvim' },
 
     config = function()
-      local harpoon = require("harpoon")
+      local harpoon = require 'harpoon'
       local map = vim.keymap.set
       harpoon:setup()
 
-      map("n", "<leader>a", function() harpoon:list():add() end)
-      map("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+      map('n', '<leader>a', function()
+        harpoon:list():add()
+      end)
+      map('n', '<C-e>', function()
+        harpoon.ui:toggle_quick_menu(harpoon:list())
+      end)
 
-      map("n", "<C-h>", function() harpoon:list():select(1) end)
-      map("n", "<C-t>", function() harpoon:list():select(2) end)
-      map("n", "<C-n>", function() harpoon:list():select(3) end)
-      map("n", "<C-s>", function() harpoon:list():select(4) end)
+      map('n', '<C-h>', function()
+        harpoon:list():select(1)
+      end)
+      map('n', '<C-t>', function()
+        harpoon:list():select(2)
+      end)
+      map('n', '<C-n>', function()
+        harpoon:list():select(3)
+      end)
+      map('n', '<C-s>', function()
+        harpoon:list():select(4)
+      end)
 
-      map("n", "<C-S-P>", function() harpoon:list():prev() end)
-      map("n", "<C-S-N>", function() harpoon:list():next() end)
-    end
+      map('n', '<C-S-P>', function()
+        harpoon:list():prev()
+      end)
+      map('n', '<C-S-N>', function()
+        harpoon:list():next()
+      end)
+    end,
   },
   {
-    "nvim-tree/nvim-tree.lua",
+    'nvim-tree/nvim-tree.lua',
     config = function()
-      require("nvim-tree").setup({
+      require('nvim-tree').setup {
         filters = {
           dotfiles = true,
         },
-        lazy = false
-      })
+      }
     end,
   },
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
