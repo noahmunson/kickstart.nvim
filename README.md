@@ -17,6 +17,15 @@
 
 * alt-i = toggle floating terminal in terminal mode and normal more
 
+* leader + a = add file to harpoon list
+* ctrl-e = harpoon quick menu
+* ctrl-h = file 1
+* ctrl-t = file 2
+* ctrl-n = file 3
+* ctrl-s = file 4
+* ctrl-shift-N = next file in list
+* ctrl-shift-P = previous file in list
+
 # kickstart.nvim
 
 ## Introduction
