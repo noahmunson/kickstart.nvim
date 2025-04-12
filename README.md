@@ -1,21 +1,21 @@
 ## My Keybinds
 
-*leader = \\
-*leader + q = open quick fix list
+* leader = \\
+* leader + q = open quick fix list
 
-*ctrl-h = move left in insert mode
-*ctrl-j = move down in insert mode
-*ctrl-k = move up in insert mode
-*ctrl-l = move right in insert mode
+* ctrl-h = move left in insert mode
+* ctrl-j = move down in insert mode
+* ctrl-k = move up in insert mode
+* ctrl-l = move right in insert mode
 
-*ctrl-h = switch window left in normal mode
-*ctrl-j = switch window down in normal mode
-*ctrl-k = switch window up in normal mode
-*ctrl-l = switch window right in normal mode
+* ctrl-h = switch window left in normal mode
+* ctrl-j = switch window down in normal mode
+* ctrl-k = switch window up in normal mode
+* ctrl-l = switch window right in normal mode
 
-*ctrl-f = focus nvim-tree in normal mode
+* ctrl-f = focus nvim-tree in normal mode
 
-*alt-i = toggle floating terminal in terminal mode and normal more
+* alt-i = toggle floating terminal in terminal mode and normal more
 
 # kickstart.nvim
 
