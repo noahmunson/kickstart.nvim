@@ -15,7 +15,7 @@
 
 * leader-f = focus nvim-tree in normal mode
 
-* leader-i = toggle floating terminal in terminal mode and normal more
+* ctrl-i = toggle floating terminal in terminal mode and normal more
 
 * leader + a = add file to harpoon list
 * ctrl-e = harpoon quick menu
