@@ -7,8 +7,11 @@ vim.g.loaded_netrwPlugin = 1
 
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true
-vim.g.mapleader = '\\'
-vim.g.maplocalleader = '\\'
+
+vim.keymap.set('n', '<Space>', '<Nop>', { silent = true })
+
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
@@ -106,10 +109,10 @@ map('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 map('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- Allows me to move with the hjkl cluster in insert mode
-map('i', '<C-h>', '<Left>', { desc = 'Move left in insert mode' })
-map('i', '<C-l>', '<Right>', { desc = 'Move right in insert mode' })
-map('i', '<C-j>', '<Down>', { desc = 'Move down in insert mode' })
-map('i', '<C-k>', '<Up>', { desc = 'Move up in insert mode' })
+map('i', '<A-h>', '<Left>', { desc = 'Move left in insert mode' })
+map('i', '<A-l>', '<Right>', { desc = 'Move right in insert mode' })
+map('i', '<A-j>', '<Down>', { desc = 'Move down in insert mode' })
+map('i', '<A-k>', '<Up>', { desc = 'Move up in insert mode' })
 
 -- Switching windows
 map('n', '<C-h>', '<C-w>h', { desc = 'switch window left' })
@@ -118,10 +121,10 @@ map('n', '<C-j>', '<C-w>j', { desc = 'switch window down' })
 map('n', '<C-k>', '<C-w>k', { desc = 'switch window up' })
 
 -- Neo Tree
-map('n', '<C-f>', '<cmd>NvimTreeFocus<CR>', { desc = 'nvimtree focus window' })
+map('n', '<leader>e', '<cmd>NvimTreeFocus<CR>', { desc = 'nvimtree focus window' })
 
 --terminal
-map({ 'n', 't' }, '<A-i>', function()
+map({ 'n', 't' }, '<leader>i', function()
   require('nvterm.terminal').toggle 'float'
 end, { desc = 'Toggle floating terminal' })
 
@@ -944,7 +947,7 @@ require('lazy').setup({
 
       map('n', '<leader>a', function()
         harpoon:list():add()
-      end)
+      end, { desc = 'Add active file to harpoon list' })
       map('n', '<C-e>', function()
         harpoon.ui:toggle_quick_menu(harpoon:list())
       end)
