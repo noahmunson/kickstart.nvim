@@ -126,7 +126,7 @@ map('n', '<C-k>', '<C-w>k', { desc = 'switch window up' })
 map('n', '<leader>e', '<cmd>NvimTreeFocus<CR>', { desc = 'nvimtree focus window' })
 
 --terminal
-map({ 'n', 't' }, '<leader>i', function()
+map({ 'n', 't' }, '<C-i>', function()
   require('nvterm.terminal').toggle 'float'
 end, { desc = 'Toggle floating terminal' })
 
